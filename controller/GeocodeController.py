@@ -31,7 +31,7 @@ class MyRequestHandler(http.server.BaseHTTPRequestHandler):
             return None
 
 def run_server():
-    server_address = ('http://144.22.204.157', 8001)
+    server_address = ('', 8001)
     httpd = http.server.HTTPServer(server_address, MyRequestHandler)
     print('Servidor en ejecución...')
     httpd.serve_forever()
