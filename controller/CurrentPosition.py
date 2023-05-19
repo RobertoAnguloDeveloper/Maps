@@ -25,13 +25,18 @@ class CurrentPosition:
         else:
             return None
 
-# while True:
-#     location = get_current_location3()
-#     if location:
-#         latitude, longitude = location
-#         print(f"Latitud: {latitude}")
-#         print(f"Longitud: {longitude}")
-#     else:
-#         print("No se pudo obtener la ubicación actual")
+location = CurrentPosition().get_current_location2()
+# if location:
+#     print(f"Latitud: {location}")
+# else:
+#     print("No se pudo obtener la ubicación actual")
+while True:
+    location = CurrentPosition().get_current_location3()
+    if location:
+        latitude, longitude = location
+        print(f"Latitud: {latitude}")
+        print(f"Longitud: {longitude}")
+    else:
+        print("No se pudo obtener la ubicación actual")
     
-#     time.sleep(1)
+    time.sleep(1)
