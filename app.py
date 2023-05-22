@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, jsonify
-import forms
 
 from controller.CurrentPosition import CurrentPosition
 from controller.VehicleController import VehicleController
