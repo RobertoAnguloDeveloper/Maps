@@ -2,6 +2,7 @@ import geocoder
 import time
 
 class CurrentPosition:
+    
     def get_current_location(self):
         g = geocoder.ip('me')
         if g.ok:
@@ -25,18 +26,21 @@ class CurrentPosition:
         else:
             return None
 
-location = CurrentPosition().get_current_location2()
-# if location:
-#     print(f"Latitud: {location}")
-# else:
-#     print("No se pudo obtener la ubicación actual")
-while True:
-    location = CurrentPosition().get_current_location3()
-    if location:
-        latitude, longitude = location
-        print(f"Latitud: {latitude}")
-        print(f"Longitud: {longitude}")
-    else:
-        print("No se pudo obtener la ubicación actual")
+# location = CurrentPosition().get_current_location3()
+
+# print(location)
+# location = CurrentPosition().get_current_location2()
+# # if location:
+# #     print(f"Latitud: {location}")
+# # else:
+# #     print("No se pudo obtener la ubicación actual")
+# while True:
+#     location = CurrentPosition().get_current_location3()
+#     if location:
+#         latitude, longitude = location
+#         print(f"Latitud: {latitude}")
+#         print(f"Longitud: {longitude}")
+#     else:
+#         print("No se pudo obtener la ubicación actual")
     
-    time.sleep(1)
+#     time.sleep(1)
