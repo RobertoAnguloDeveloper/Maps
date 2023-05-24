@@ -1,3 +1,4 @@
+from datetime import datetime
 from controller.DbConnection import MongoDB
 from model.Vehicle import Vehicle
 
@@ -10,30 +11,24 @@ class VehicleController:
             'license_number': vehicle.license_number,
             'password': vehicle.password,
             'current_position': vehicle.current_position,
-            'current_route_id': vehicle.current_route_id
+            'current_route_id': vehicle.current_route_id,
+            'last_update': datetime.now()
         }
         # Lógica para guardar el vehículo en la base de datos utilizando el método insert_one de PyMongo
         result = self.db.vehicles.insert_one(vehicle_data)
-        vehicle_id = str(result.inserted_id)
-        vehicle.set_id(vehicle_id)
-        return vehicle
+        return result
 
     def get_vehicle(self, license_number):
         # Lógica para obtener un vehículo de la base de datos según el número de licencia
         vehicle = self.db.vehicles.find_one({'license_number': license_number})
+        vehicle["_id"] = str(vehicle["_id"])
         return vehicle
     
     def get_all_vehicles(self):
         vehicles = self.db.vehicles.find()
-        vehicle_list = []
-        for vehicle_data in vehicles:
-            license_number = vehicle_data['license_number']
-            password = vehicle_data['password']
-            current_position = vehicle_data['current_position']
-            current_route_id = vehicle_data['current_route_id']
-            vehicle = Vehicle(license_number, password, current_position, current_route_id)
-            vehicle.set_id(str(vehicle_data['_id']))
-            vehicle_list.append(vehicle)
+        vehicle_list = list(vehicles)
+        for i in range(len(vehicle_list)):
+            vehicle_list[i]["_id"] = str(vehicle_list[i]["_id"])
         return vehicle_list
     
     def update_vehicle(self, vehicle):
