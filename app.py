@@ -36,7 +36,7 @@ def create_vehicle():
 # @app.route('/vehicle/create', methods=['POST'])
 # def update_vehicle():
     response = request.get_json()
-    vehicle = Vehicle(response["license_number"], response["password"], response["current_position"], response["current_route_id"])
+    vehicle = Vehicle(response["license_number"], response["password"], CurrentPosition().get_current_location3(), response["current_route_id"])
     result = vehicle_controller.create_vehicle(vehicle)
     if result:
             return jsonify({'message': 'Vehicle created successfully'})
