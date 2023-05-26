@@ -4,8 +4,8 @@
 
 {% block content %}
     <div class="bg-form rounded-3 form">
-        <h2 class="p-3 text-center">Vehicle registration</h2>
-        <form class="p-3" name="vehicle" action="/vehicle/create" method="POST" enctype="application/json">
+        <h2 class="p-3 text-center">Login</h2>
+        <form class="p-3" name="vehicle" action="/login" method="POST" enctype="application/json">
             <div class="m-3">
                 <label for="license_number">License Number:</label><br>
                 <input type="text" id="license_number" name="license_number"><br>
@@ -16,7 +16,7 @@
                 <input type="password" id="password" name="password"><br>
             </div>
 
-            <input class="m-3 btn btn-warning" style="font-weight: bold" type="submit" value="Register">
+            <input class="m-3 btn btn-warning" style="font-weight: bold" type="submit" value="Login">
         </form>
     </div>
 {% endblock %}

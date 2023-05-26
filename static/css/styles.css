@@ -1,0 +1,47 @@
+body {
+    background-image: url('../images/Header2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header, footer {
+    background-color: rgba(0, 81, 255, 0.712);
+    color: white;
+    padding: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: changeColor 5s linear infinite;
+}
+
+header h4, footer h4 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: medium;
+    font-style: oblique;
+    text-decoration: underline;
+}
+
+@keyframes changeColor {
+    0% {
+        background-color: rgba(0, 81, 255, 0.712);
+    }
+    50% {
+        background-color: rgb(0, 0, 0)
+    }
+    100% {
+        background-color: rgba(0, 81, 255, 0.712);
+    }
+}
+
+.bg-form {
+    background-color: rgb(128, 128, 128) 
+}
+
+.form{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+    color: white;
+
+}
+
+nav a {
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 2.5);
+}

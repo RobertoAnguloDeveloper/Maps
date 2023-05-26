@@ -2,19 +2,39 @@
 <html>
 <head>
     <title>{% block title %}{% endblock %}</title>
-    <!-- Aquí puedes incluir tus archivos CSS y otros recursos -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap-reboot.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
 </head>
 <body>
-    <header>
+    <header class="fixed-top">
+        <h1 class="text-center">AUTONOMUS APP</h1>
+        <h4 class="text-center">Move without getting lost</h4>
     </header>
 
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-
-    <footer>
-        <!-- Aquí puedes incluir tu pie de página común -->
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <nav class="p-3 navbar navbar-expand-lg navbar-light">
+            <a class="m-2 btn btn-primary" href="{{ url_for('index')}}" role="button">Home</a>
+                <ul class="nav flex-column">
+                    <li class="m-1 nav-item">
+                        <a class=" btn btn-primary" href="{{ url_for('vehicle_reg')}}" role="button">Register</a>
+                    </li>
+                    <li class="m-1 nav-item">
+                        <a class="btn btn-primary" style="width:80px" href="#" role="button">Login</a>
+                    </li>
+                </ul>
+        </nav>
+        <main>
+            {% block content %}
+            
+            {% endblock %}
+        </main>
+    </div>
+    <footer class="fixed-bottom">
+        <h1 class="text-center">AUTONOMUS APP</h1>
+        <h4 class="text-center">Move without getting lost</h4>
     </footer>
 </body>
 </html>
