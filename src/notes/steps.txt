@@ -1,0 +1,7 @@
+STEPS
+1 Create an interactive map that shows, centered, a zoomed current position.
+2 The system has to update the current position every second on the map.
+3 The user should be able to position the destination on the map.
+4 The system should be able to show the optimal route to get to the destination.
+5 If the user is out of route, the system should notify him.
+6 Users registered on the system should be visible for all new users in the map
