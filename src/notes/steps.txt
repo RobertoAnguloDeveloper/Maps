@@ -1,5 +1,5 @@
 STEPS
-1 Create an interactive map that shows, centered, a zoomed current position.
+1 Create an interactive map that shows, centered, a zoomed current position. Checked
 2 The system has to update the current position every second on the map.
 3 The user should be able to position the destination on the map.
 4 The system should be able to show the optimal route to get to the destination.
