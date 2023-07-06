@@ -21,7 +21,7 @@ def create_vehicle():
     vehicle = Vehicle(response["license_number"], response["password"], CurrentPosition().get_current_location3(), None)
     result = vehicle_controller.create_vehicle(vehicle)
     if result:
-            return jsonify({'message': 'Vehicle created successfully'})
+            return jsonify({'mensaje': 'Vehicle created successfully'})
     else:
         return jsonify({'message': 'Failed to create vehicle'}), 500
     
