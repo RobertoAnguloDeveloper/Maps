@@ -9,15 +9,11 @@ vehicle_controller = VehicleController(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
-
-@app.route('/vehicle_reg')
-def vehicle_reg():
-    return render_template('vehicle_reg.html')
+    return get_all_vehicles()
 
 @app.route('/vehicle/create', methods=['POST'])
 def create_vehicle():
-    response = request.form.to_dict()
+    response = request.get_json()
     vehicle = Vehicle(response["license_number"], response["password"], CurrentPosition().get_current_location3())
     result = vehicle_controller.create_vehicle(vehicle)
     if result:
