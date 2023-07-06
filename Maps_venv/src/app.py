@@ -18,7 +18,7 @@ def vehicle_reg():
 @app.route('/vehicle/create', methods=['POST'])
 def create_vehicle():
     response = request.form.to_dict()
-    vehicle = Vehicle(response["license_number"], response["password"], CurrentPosition().get_current_location3(), None)
+    vehicle = Vehicle(response["license_number"], response["password"], CurrentPosition().get_current_location3())
     result = vehicle_controller.create_vehicle(vehicle)
     if result:
             return jsonify({'mensaje': 'Vehicle created successfully'})
@@ -30,7 +30,7 @@ def update_vehicle():
     response = request.get_json()
     search = get_vehicle(response["license_number"])
     if search:
-        vehicle = Vehicle(response["license_number"], response["password"],CurrentPosition().get_current_location3(), response["current_route_id"])
+        vehicle = Vehicle(response["license_number"], response["password"],CurrentPosition().get_current_location3())
         result = vehicle_controller.update_vehicle(vehicle)
         if result:
                 return jsonify({'message': 'Vehicle updated successfully'})
