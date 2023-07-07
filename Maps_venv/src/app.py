@@ -35,6 +35,20 @@ def update_vehicle():
     else:
         return jsonify({'message': 'License number not found'}), 500
     
+@app.route('/vehicle/updateroute/<license_number>/<lat>,<lon>', methods=['PUT'])
+def updateroute_vehicle(license_number,lat,lon):
+    response = request.get_json()
+    search = get_vehicle(license_number)
+    if search:
+        vehicle = Vehicle(license_number, response["password"],[lat,lon])
+        result = vehicle_controller.updateroute_vehicle(vehicle)
+        if result:
+                return jsonify({'message': 'Vehicle updated successfully'})
+        else:
+            return jsonify({'message': 'Failed to update vehicle'}), 500
+    else:
+        return jsonify({'message': 'License number not found'}), 500
+    
 
 @app.route('/vehicle/get/<license_number>', methods=['GET'])
 def get_vehicle(license_number):

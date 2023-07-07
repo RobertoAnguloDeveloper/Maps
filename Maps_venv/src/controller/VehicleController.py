@@ -37,7 +37,16 @@ class VehicleController:
         vehicle_to_update = self.get_vehicle(vehicle.license_number)
         if vehicle_to_update:
             vehicle_to_update['password'] = vehicle.password
-            self.db.vehicles.update_one({'license_number': vehicle.license_number}, {'$set':{'password': vehicle_to_update['password']}})
+            self.db.vehicles.update_one({'license_number': vehicle.license_number}, {'$set':{'current_position': vehicle_to_update['current_position']}})
+            return True
+        return False
+    
+    #Actualiza la ruta de un vehiculo
+    def updateroute_vehicle(self, vehicle):
+        vehicle_to_update = self.get_vehicle(vehicle.license_number)
+        if vehicle_to_update:
+            vehicle_to_update['current_position'] = vehicle.current_position
+            self.db.vehicles.update_one({'license_number': vehicle.license_number}, {'$set':{'current_position': vehicle_to_update['current_position']}})
             return True
         return False
 
