@@ -45,7 +45,8 @@ class VehicleController:
     def updateroute_vehicle(self, vehicle):
         vehicle_to_update = self.get_vehicle(vehicle.license_number)
         if vehicle_to_update:
-            vehicle_to_update['current_position'] = vehicle.current_position
+            vehicle_to_update['current_position'][0] = int(vehicle.current_position[0])
+            vehicle_to_update['current_position'][1] = int(vehicle.current_position[1])
             self.db.vehicles.update_one({'license_number': vehicle.license_number}, {'$set':{'current_position': vehicle_to_update['current_position']}})
             return True
         return False
